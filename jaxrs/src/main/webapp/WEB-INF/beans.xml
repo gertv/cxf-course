@@ -1,0 +1,37 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<beans xmlns="http://www.springframework.org/schema/beans"
+       xmlns:jaxrs="http://cxf.apache.org/jaxrs"
+       xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+       xsi:schemaLocation="
+          http://www.springframework.org/schema/beans http://www.springframework.org/schema/beans/spring-beans.xsd
+          http://cxf.apache.org/jaxrs http://cxf.apache.org/schemas/jaxrs.xsd">
+
+    <import resource="classpath:META-INF/cxf/cxf.xml"/>
+
+    <jaxrs:server id="forestService" address="/">
+        <jaxrs:serviceBeans>
+            <ref bean="service"/>
+        </jaxrs:serviceBeans>
+        <jaxrs:extensionMappings>
+            <entry key="json" value="application/json"/>
+            <entry key="xml" value="application/xml"/>
+        </jaxrs:extensionMappings>
+    </jaxrs:server>
+
+    <bean id="service" class="be.anova.course.cxf.rs.ForestService">
+        <property name="forest" ref="forest"/>
+    </bean>
+
+    <bean id="forest" class="be.anova.course.cxf.Forest">
+        <property name="name" value="Old Forest"/>
+        <property name="trees">
+            <list>
+                <bean class="be.anova.course.cxf.Tree">
+                    <property name="species" value="Sorbus aucuparia"/>
+                    <property name="age" value="10"/>
+                </bean>
+            </list>
+        </property>
+    </bean>
+
+</beans>
