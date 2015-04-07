@@ -10,15 +10,9 @@ import java.util.List;
 /**
  * Service to access information about a forest
  */
-// START SNIPPET: sei
-@WebService
+//TODO: annotations
 public interface ForestService {
 
-    public String getForestName();
-
-    public Tree[] getTrees();
-
-    public Forest getForest();
+    // TODO: Add SEI methods
 
 }
-// END SNIPPET: sei

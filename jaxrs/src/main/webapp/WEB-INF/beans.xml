@@ -6,15 +6,7 @@
           http://www.springframework.org/schema/beans http://www.springframework.org/schema/beans/spring-beans.xsd
           http://cxf.apache.org/jaxrs http://cxf.apache.org/schemas/jaxrs.xsd">
 
-    <jaxrs:server id="forestService" address="/">
-        <jaxrs:serviceBeans>
-            <ref bean="service"/>
-        </jaxrs:serviceBeans>
-        <jaxrs:extensionMappings>
-            <entry key="json" value="application/json"/>
-            <entry key="xml" value="application/xml"/>
-        </jaxrs:extensionMappings>
-    </jaxrs:server>
+    <!-- TODO: publish RESTful service -->
 
     <bean id="service" class="be.anova.course.cxf.rs.ForestService">
         <property name="forest" ref="forest"/>

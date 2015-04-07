@@ -11,7 +11,7 @@ import java.util.List;
 /**
  * A {@link ForestService} implementation
  */
-@WebService(endpointInterface = "be.anova.course.cxf.service.ForestService")
+// TODO: annotations
 public class ForestServiceImpl implements ForestService {
 
     private Forest forest;
@@ -28,16 +28,7 @@ public class ForestServiceImpl implements ForestService {
         this.forest = forest;
     }
 
-    public String getForestName() {
-        return forest.getName();
-    }
+    //TODO: implement interface
 
-
-    public Tree[] getTrees() {
-        return forest.getTrees().toArray(new Tree[forest.getTrees().size()]);
-    }
-
-    public Forest getForest() {
-        return forest;
-    }
 }
+

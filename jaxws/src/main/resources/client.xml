@@ -5,17 +5,6 @@
        xsi:schemaLocation="http://www.springframework.org/schema/beans http://www.springframework.org/schema/beans/spring-beans.xsd
                            http://cxf.apache.org/jaxws http://cxf.apache.org/schemas/jaxws.xsd">
 
-    <jaxws:client id="simpleClient"
-                  serviceClass="be.anova.course.cxf.service.ForestService"
-                  address="http://localhost:8080/Forest" />
-
-
-    <bean id="factoryClient" class="be.anova.course.cxf.service.ForestService"
-          factory-bean="clientFactory" factory-method="create"/>
-
-	<bean id="clientFactory" class="org.apache.cxf.jaxws.JaxWsProxyFactoryBean">
-	  <property name="serviceClass" value="be.anova.course.cxf.service.ForestService"/>
-	  <property name="address" value="http://localhost:8080/Forest"/>
-	</bean>
+    <!-- TODO: Create a web service client -->
 
 </beans>

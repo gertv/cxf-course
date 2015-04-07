@@ -15,26 +15,10 @@ public class Application {
         ClassPathXmlApplicationContext context = new ClassPathXmlApplicationContext("client.xml");
         context.start();
 
-        ForestService simple = context.getBean("simpleClient", ForestService.class);
-        System.out.println(simple.getForestName());
-        for (Tree tree : simple.getTrees()) {
-            System.out.printf("Tree: %s%n", tree.getSpecies());
-        }
+        // TODO: grab a client from the Spring context (e.g. using .getBean(String, Class)
+        //       or create it from code
+        // TODO: invoke a few service methods to ensure things are working fine
 
-        ForestService factory = context.getBean("factoryClient", ForestService.class);
-        System.out.println(factory.getForestName());
-        for (Tree tree : factory.getTrees()) {
-            System.out.printf("Tree: %s%n", tree.getSpecies());
-        }
-
-        ClientProxyFactoryBean bean = new JaxWsProxyFactoryBean();
-        bean.setServiceClass(ForestService.class);
-        bean.setAddress("http://localhost:8080/Forest");
-        ForestService client = bean.create(ForestService.class);
-        System.out.println(factory.getForest().getName());
-        for (Tree tree : factory.getTrees()) {
-            System.out.printf("Tree: %s%n", tree.getSpecies());
-        }
     }
 
 }

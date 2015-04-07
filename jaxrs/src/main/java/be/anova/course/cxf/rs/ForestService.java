@@ -9,29 +9,10 @@ import javax.ws.rs.core.Response;
 /**
  * RESTful forest service implementation
  */
-@Path("/forest")
-@Produces({"application/xml", "application/json"})
+// TODO: add annotations and service methods
 public class ForestService {
 
     private Forest forest;
-
-    @GET
-    public Forest getForest() {
-        return forest;
-    }
-
-    @GET
-    @Path("/tree/{id}")
-    public Tree getTree(@PathParam("id") int id) {
-        return forest.getTrees().get(id);
-    }
-
-    @POST
-    @Consumes("application/xml")
-    public Response update(Forest forest) {
-        this.forest = forest;
-        return Response.ok().build();
-    }
 
     public void setForest(Forest forest) {
         this.forest = forest;
