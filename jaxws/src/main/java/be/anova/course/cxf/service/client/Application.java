@@ -2,14 +2,12 @@ package be.anova.course.cxf.service.client;
 
 import be.anova.course.cxf.Tree;
 import be.anova.course.cxf.service.ForestService;
+import org.apache.cxf.frontend.ClientProxyFactoryBean;
+import org.apache.cxf.jaxws.JaxWsProxyFactoryBean;
 import org.springframework.context.support.ClassPathXmlApplicationContext;
 
 /**
- * Created by IntelliJ IDEA.
- * User: gert
- * Date: 11/09/11
- * Time: 14:47
- * To change this template use File | Settings | File Templates.
+ * An application that can act as a simple web service client
  */
 public class Application {
 
@@ -25,6 +23,15 @@ public class Application {
 
         ForestService factory = context.getBean("factoryClient", ForestService.class);
         System.out.println(factory.getForestName());
+        for (Tree tree : factory.getTrees()) {
+            System.out.printf("Tree: %s%n", tree.getSpecies());
+        }
+
+        ClientProxyFactoryBean bean = new JaxWsProxyFactoryBean();
+        bean.setServiceClass(ForestService.class);
+        bean.setAddress("http://localhost:8080/Forest");
+        ForestService client = bean.create(ForestService.class);
+        System.out.println(factory.getForest().getName());
         for (Tree tree : factory.getTrees()) {
             System.out.printf("Tree: %s%n", tree.getSpecies());
         }

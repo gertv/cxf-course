@@ -6,8 +6,6 @@
           http://www.springframework.org/schema/beans http://www.springframework.org/schema/beans/spring-beans.xsd
           http://cxf.apache.org/jaxrs http://cxf.apache.org/schemas/jaxrs.xsd">
 
-    <import resource="classpath:META-INF/cxf/cxf.xml"/>
-
     <jaxrs:server id="forestService" address="/">
         <jaxrs:serviceBeans>
             <ref bean="service"/>
@@ -29,6 +27,14 @@
                 <bean class="be.anova.course.cxf.Tree">
                     <property name="species" value="Sorbus aucuparia"/>
                     <property name="age" value="10"/>
+                </bean>
+                <bean class="be.anova.course.cxf.Tree">
+                    <property name="species" value="Quercus petraea"/>
+                    <property name="age" value="53"/>
+                </bean>
+                <bean class="be.anova.course.cxf.Tree">
+                    <property name="species" value="Alnus glutinosa"/>
+                    <property name="age" value="23"/>
                 </bean>
             </list>
         </property>
