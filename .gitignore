@@ -1,2 +1,7 @@
+# Apache Maven
 target
+# Prince XML
+**/fontconfig
+# IntelliJ IDEA
+.idea
 *.i??
