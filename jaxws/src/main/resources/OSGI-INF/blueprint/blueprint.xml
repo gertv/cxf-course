@@ -1,0 +1,9 @@
+<blueprint xmlns="http://www.osgi.org/xmlns/blueprint/v1.0.0"
+           xmlns:jaxws="http://cxf.apache.org/blueprint/jaxws"
+           xmlns:cxf="http://cxf.apache.org/blueprint/core">
+
+    <jaxws:endpoint implementor="be.anova.course.cxf.service.impl.ForestServiceImpl"
+                    address="/ws/ForestService">
+    </jaxws:endpoint>
+
+</blueprint>

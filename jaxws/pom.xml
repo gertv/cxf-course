@@ -11,7 +11,7 @@
     </parent>
 
     <artifactId>jaxws</artifactId>
-    <packaging>war</packaging>
+    <packaging>bundle</packaging>
     <name>CXF Course :: JAX-WS</name>
 
     <dependencies>
@@ -49,7 +49,15 @@
                 <groupId>org.mortbay.jetty</groupId>
                 <artifactId>jetty-maven-plugin</artifactId>
             </plugin>
+            <plugin>
+                <groupId>org.apache.felix</groupId>
+                <artifactId>maven-bundle-plugin</artifactId>
+                <configuration>
+                    <instructions>
+                        <Private-Package>be.anova.course.cxf.service*</Private-Package>
+                    </instructions>
+                </configuration>
+            </plugin>
         </plugins>
     </build>
-
 </project>
