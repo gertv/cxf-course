@@ -11,7 +11,21 @@
     </parent>
 
     <artifactId>model</artifactId>
-    <packaging>jar</packaging>
+    <packaging>bundle</packaging>
     <name>CXF Course :: Model Classes</name>
+
+    <build>
+        <plugins>
+            <plugin>
+                <groupId>org.apache.felix</groupId>
+                <artifactId>maven-bundle-plugin</artifactId>
+                <configuration>
+                    <instructions>
+                        <Export-Package>be.anova.course.cxf</Export-Package>
+                    </instructions>
+                </configuration>
+            </plugin>
+        </plugins>
+    </build>
 
 </project>
